@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DUO SERVICE J&N SAS | Servicios de Fumigación</title>
+
+  <style>
+    /* ===== ESTILOS GENERALES ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #ffffff, #e3f2fd);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    /* ===== ANIMACIONES ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background-image: url('fumigacion-header.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    header .overlay {
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 28px;
+      margin-bottom: 15px;
+      animation: fadeDown 1.5s ease-out;
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header h1 img {
+      height: 70px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #4dd0e1;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background-image: url('fumigacion-fondo.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      color: white;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hero h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+      animation: slideUp 1.5s ease-out;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      animation: slideUp 1.8s ease-out;
+    }
+
+    .hero button {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SERVICIOS ===== */
+    .servicios {
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .servicios h2 {
+      color: #007bff;
+      margin-bottom: 30px;
+    }
+
+    .contenedor-tarjetas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .tarjeta {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .tarjeta img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== SECCIÓN EMPRESA ===== */
+    #empresa {
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #ffffff;
+    }
+
+    #empresa h2 {
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+
+    #empresa p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    /* ===== CONTACTO ===== */
+    .contacto {
+      background-color: #e3f2fd;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .contacto form {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contacto input, .contacto textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .contacto button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+      width: 100%;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .contacto button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: linear-gradient(90deg, #007bff, #0056b3);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header h1 {
+        flex-direction: column;
+      }
+
+      .tarjeta {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="overlay">
+      <h1>
+        <img src="img/logo duo 2.jpeg" alt="Logo de la empresa">
+        DUO SERVICE J&N SAS
+      </h1>
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#empresa">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="tel:+573001234567">📞 Llama Ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Servicios generales y todero</h2>
+      <p>Brindar servicios eficientes de aseo, cafetería, jardinería y mantenimiento, 
+        con personal calificado y recursos de calidad, promoviendo altos estándares y el crecimiento 
+        de nuestros clientes mediante un equipo comprometido y en desarrollo continuo
+</p>
+      <button onclick="location.href='#contacto'">Solicitar Cotización Gratis</button>
+    </div>
+  </section>
+
+  <!-- ===== SERVICIOS ===== -->
+  <section id="servicios" class="servicios fade-in">
+    <h2>Nuestros Servicios</h2>
+    <div class="contenedor-tarjetas">
+      <div class="tarjeta fade-in">
+        <img src="img/serviciosgenerales.jpg" alt="Operarias de servicios generales">
+        <h3>Operarias de servicios generales</h3>
+        <p>Brindamos servicios de limpieza y cafetería que elevan la imagen y el bienestar de su empresa. Nos encargamos del mantenimiento de áreas comunes, la desinfección de superficies y la gestión responsable de residuos, garantizando espacios impecables que impulsan la productividad y ofrecen una experiencia superior a colaboradores y visitantes.</p>
+      </div>
+      <div class="tarjeta fade-in">
+        <img src="img/todero.jpg" alt="Todero avanzado">
+        <h3>Todero avanzado</h3>
+        <p>Realizamos actividades integrales de mantenimiento, gestionando insumos y recursos de forma eficiente. 
+          Contamos con conocimientos básicos en jardinería, plomería, electricidad y pintura, lo que nos permite ofrecer soluciones ágiles y 
+          efectivas para mantener sus instalaciones en óptimas condiciones.</p>
+      </section>
+
+        <section id="servicios" class="servicios fade-in">
+    <h2>Servicios Adicionales</h2>
+    <div class="contenedor-tarjetas">
+      <div class="tarjeta fade-in">
+        <img src="img/Control de Insectos.jpg" alt="Control de Insectos">
+        <h3>Control de Insectos</h3>
+        <p>Eliminamos y prevenimos la presencia de insectos rastreros y voladores con tratamientos efectivos y seguros. Garantizamos 
+          ambientes libres de plagas para proteger la salud, la higiene y la tranquilidad en sus espacios.</p>
+      </div>
+      <div class="tarjeta fade-in">
+        <img src="img/fumigacion.jpeg" alt="Fumigación Residencial">
+        <h3>Fumigación Residencial</h3>
+        <p>Ofrecemos fumigación profesional para hogares, diseñada para erradicar plagas comunes y
+          evitar su reaparición. Utilizamos productos certificados y seguros para su familia y mascotas, 
+          asegurando un entorno limpio y saludable..</p>
+      </div>
+       <div class="contenedor-tarjetas">
+      <div class="tarjeta fade-in">
+        <img src="img/Control de Roedores.jpg" alt="Control de Roedores">
+        <h3>Control de Roedores</h3>
+        <p>Implementamos soluciones estratégicas para la detección, captura y prevención de roedores. 
+          Nuestro servicio protege sus instalaciones y reduce riesgos sanitarios, manteniendo sus espacios 
+          seguros y libres de daños.</p>
+      </div>
+      </section>
+
+  <!-- ===== EMPRESA ===== -->
+  <section id="empresa" class="fade-in">
+    <h2>¿Por qué elegirnos?</h2>
+    <p>Somos una empresa líder en servicios de aseo, cafetería, jardinería, limpieza de piscinas, mantenimiento locativo, 
+      control de plagas y suministro de insumos. Ofrecemos soluciones eficientes y personalizadas que garantizan entornos limpios, 
+      seguros y funcionales, impulsando el bienestar y la productividad de su organización.</p>
+  </section>
+
+  <!-- ===== CONTACTO ===== -->
+  <section id="contacto" class="contacto fade-in">
+    <h2>Contáctanos y Agenda tu Servicio</h2>
+    <form>
+      <label for="nombre">Nombre:</label><br>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+
+      <label for="telefono">Teléfono:</label><br>
+      <input type="tel" id="telefono" name="telefono" required><br><br>
+
+      <label for="mensaje">¿Qué servicio necesitas?</label><br>
+      <textarea id="mensaje" name="mensaje" rows="4"></textarea><br><br>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+    <p>También puedes contactarnos por WhatsApp: <strong>+57 300 123 4567</strong></p>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="fade-in">
+    <p>&copy; 2024 DUO SERVICE J&N SAS. Todos los derechos reservados.</p>
+    <p>Calle 00 #00-00 | Bogotá, Colombia | contacto@duoservice.com</p>
+  </footer>
+
+  <script>
+    // Efecto de aparición suave al hacer scroll
+    const elementos = document.querySelectorAll('.fade-in');
+
+    const mostrarAlDesplazar = () => {
+      elementos.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        const alturaPantalla = window.innerHeight - 100;
+        if (top < alturaPantalla) {
+          el.classList.add('visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', mostrarAlDesplazar);
+    mostrarAlDesplazar(); // ejecutar al cargar
+  </script>
+</body>
+</html>
